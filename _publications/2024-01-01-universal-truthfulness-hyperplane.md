@@ -4,8 +4,8 @@ collection: publications
 category: conferences
 permalink: /publication/universal-truthfulness-hyperplane
 excerpt: 'First author. Co-authors: Shiqi Chen, Yu Cheng, Junxian He.'
-date: 2024-01-01
-venue: 'EMNLP 2024'
+date: 2024-01-02
+venue: 'EMNLP'
 citation: 'Junteng Liu, Shiqi Chen, Yu Cheng, Junxian He. (2024). "On the Universal Truthfulness Hyperplane Inside LLMs." EMNLP 2024.'
 ---
 
