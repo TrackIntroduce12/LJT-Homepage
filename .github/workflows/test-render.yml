@@ -1,0 +1,40 @@
+name: Test rendered pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.328.0
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+          cache-version: 0
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "/LJT-Homepage"
+        env:
+          JEKYLL_ENV: production
+      - name: Verify rendered output
+        run: |
+          echo '--- TITLE ---'
+          grep -o '<title>[^<]*</title>' _site/index.html | head -n 1
+          echo '--- NAME OCCURRENCES ---'
+          grep -o 'Junteng Liu' _site/index.html | head -n 5
+          echo '--- PLACEHOLDER CHECK ---'
+          if grep -R -n -E 'Your Name|Your Sidebar Name|GitHub University|name@name.com|Red Brick University' _site; then exit 1; else echo 'No placeholders found'; fi
+          echo '--- HTML PAGES ---'
+          find _site -name '*.html' | sort
+          echo '--- ABOUT KEYWORDS ---'
+          grep -o -E 'Personal Details|Academic Background|Research Experience|Research Interests|Publications|Skills|Contact Information' _site/index.html | sort | uniq -c
+          echo '--- PUBLICATION TITLES IN ABOUT ---'
+          grep -o -E 'SynLogic|Perception Bottleneck|Universal Truthfulness Hyperplane|In-Context Sharpness|C-Eval|Composing Parameter-Efficient Modules' _site/index.html | sort | uniq -c
+          echo '--- PUBLICATIONS PAGE TITLES ---'
+          grep -o -E 'SynLogic|Perception Bottleneck|Universal Truthfulness Hyperplane|In-Context Sharpness|C-Eval|Composing Parameter-Efficient Modules' _site/publications/index.html | sort | uniq -c
