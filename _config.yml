@@ -5,7 +5,7 @@ site_theme               : "default"
 title                    : "Junteng Liu"
 title_separator          : "-"
 name                     : &name "Junteng Liu"
-description              : &description "Junteng Liu's academic portfolio"
+description              : &description "First-year PhD candidate at HKUST NLP Group"
 url                      : "https://TrackIntroduce12.github.io"
 baseurl                  : "/LJT-Homepage"
 repository               : "TrackIntroduce12/LJT-Homepage"
@@ -85,7 +85,7 @@ twitter:
   username               : &twitter "junteng88716710"
 
 og_image                 : og-image.png
-og_description           : "Junteng Liu's academic portfolio"
+og_description           : "First-year PhD candidate at HKUST NLP Group"
 
 social:
   type                   : Person
@@ -100,7 +100,6 @@ analytics:
 include:
   - .htaccess
   - _pages
-  - files
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
