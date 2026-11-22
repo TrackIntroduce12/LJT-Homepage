@@ -11,7 +11,7 @@ baseurl                  : "/LJT-Homepage"
 repository               : "TrackIntroduce12/LJT-Homepage"
 
 author:
-  avatar           : "profile.png"
+  avatar           : "jl-avatar.svg"
   name             : "Junteng Liu"
   pronouns         :
   bio              : "First-year PhD candidate at HKUST NLP Group"
